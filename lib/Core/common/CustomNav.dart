@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:task_manager/providers/navBarScreensProvider.dart';
+import 'package:task_manager/Core/providers/navBarScreensProvider.dart';
 
 class CustomNav extends ConsumerStatefulWidget {
   const CustomNav({super.key});

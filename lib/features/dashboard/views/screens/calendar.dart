@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/views/widgets/calendarWidgets/calendarHeader.dart';
-import 'package:task_manager/views/widgets/calendarWidgets/dateChanger.dart';
-import 'package:task_manager/views/widgets/calendarWidgets/dayCalendar.dart';
+import 'package:task_manager/Core/common/calendarHeader.dart';
+import 'package:task_manager/Core/common/dateChanger.dart';
+import 'package:task_manager/features/dashboard/views/widgets/dayCalendar.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});

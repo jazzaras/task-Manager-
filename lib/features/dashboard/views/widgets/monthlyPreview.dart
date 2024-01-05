@@ -1,6 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/views/widgets/HomeWidgets/popInfoSmall.dart';
+import 'package:task_manager/features/dashboard/views/widgets/popInfoSmall.dart';
 
 class MonthlyPreview extends StatelessWidget {
   const MonthlyPreview({super.key});

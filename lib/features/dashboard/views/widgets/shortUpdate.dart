@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/views/widgets/HomeWidgets/popInfoWide.dart';
+import 'package:task_manager/features/dashboard/views/widgets/popInfoWide.dart';
 
 class ShortUpdate extends StatelessWidget {
   const ShortUpdate({super.key});

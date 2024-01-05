@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:task_manager/providers/currentDateProvider.dart';
-import 'package:task_manager/views/widgets/calendarWidgets/singlDay.dart';
+import 'package:task_manager/Core/providers/currentDateProvider.dart';
+import 'package:task_manager/Core/common/singlDay.dart';
 import 'package:quiver/time.dart';
 
 class DateChanger extends ConsumerStatefulWidget {

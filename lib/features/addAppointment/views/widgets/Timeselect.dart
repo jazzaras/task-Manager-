@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:task_manager/providers/appointmentsProvider.dart';
-import 'package:task_manager/providers/currentDateProvider.dart';
+import 'package:task_manager/Core/providers/appointmentsProvider.dart';
+import 'package:task_manager/Core/providers/currentDateProvider.dart';
 
 class TimeSelect extends ConsumerStatefulWidget {
   const TimeSelect({super.key});

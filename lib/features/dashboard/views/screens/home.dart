@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/views/widgets/HomeWidgets/info.dart';
-import 'package:task_manager/views/widgets/HomeWidgets/shortUpdate.dart';
+import 'package:task_manager/features/dashboard/views/widgets/info.dart';
+import 'package:task_manager/features/dashboard/views/widgets/shortUpdate.dart';
 
-import '../widgets/HomeWidgets/monthlyPreview.dart';
+import '../widgets/monthlyPreview.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

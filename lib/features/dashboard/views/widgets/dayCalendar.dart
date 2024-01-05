@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:task_manager/providers/appointmentsProvider.dart';
-import 'package:task_manager/providers/currentDateProvider.dart';
-import 'package:task_manager/views/widgets/calendarWidgets/appointmentPop.dart';
+import 'package:task_manager/Core/providers/appointmentsProvider.dart';
+import 'package:task_manager/Core/providers/currentDateProvider.dart';
+import 'package:task_manager/features/dashboard/views/widgets/appointmentPop.dart';
 
 class DayCalendar extends ConsumerStatefulWidget {
   const DayCalendar({super.key});
