@@ -19,6 +19,7 @@ class _AppointmentPopState extends State<AppointmentPop> {
   Widget build(BuildContext context) {
     // getting the json String stored in the notes as a String
     final notes = json.decode(widget.appointment.notes!);
+    print(notes);
 
     // getting the text for the time interval of the appointment
     var timeInter =
@@ -95,14 +96,16 @@ class _AppointmentPopState extends State<AppointmentPop> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Padding(
+              Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: AutoSizeText(
-                  "descripsion of app descripsion of apent descripsion of appointment",
-                  maxLines: 5,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w900),
+                child: SizedBox(
+                  child: AutoSizeText(
+                    notes['description'],
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w900),
+                  ),
                 ),
               ),
               Row(

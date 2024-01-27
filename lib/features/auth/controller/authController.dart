@@ -3,6 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:task_manager/Core/providers/AuthErrorProvider.dart';
 import 'package:task_manager/features/auth/repository/authRepository.dart';
 import 'package:task_manager/Core/providers/UserProvider.dart';
+import 'package:task_manager/features/dashboard/controller/AppointmentController.dart';
 
 final authControllerProvider = Provider((ref) => AuthController(ref));
 
@@ -32,6 +33,7 @@ class AuthController {
           .signUp(email: email, password: password, username: username);
 
       setSession();
+      await _ref.read(appointmentControllerProvider).getAppointments();
     } on AuthException catch (err) {
       if (err.statusCode == "422") {
         _ref.read(authErrorProvider.notifier).setError(err.message);
@@ -48,6 +50,7 @@ class AuthController {
           .read(authRepositoryProvider)
           .signIn(email: email, password: password);
       setSession();
+      await _ref.read(appointmentControllerProvider).getAppointments();
     } on AuthException catch (err) {
       if (err.message == "Invalid login credentials") {
         _ref

@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:task_manager/Core/providers/appointmentsProvider.dart';
 import 'package:task_manager/Core/providers/currentDateProvider.dart';
+import 'package:task_manager/features/dashboard/controller/AppointmentController.dart';
+import 'package:task_manager/features/dashboard/repository/AppointmentRepository.dart';
 import 'package:task_manager/features/dashboard/views/widgets/appointmentPop.dart';
 
 class DayCalendar extends ConsumerStatefulWidget {
@@ -19,6 +21,8 @@ class _DayCalendarState extends ConsumerState<DayCalendar> {
   Widget build(BuildContext context) {
     calendarController.displayDate = ref.watch(SelectedDateProvider);
     calendarController.selectedDate = ref.watch(SelectedDateProvider);
+
+    print((ref.watch(UserAppointmentsProvider) as List).length);
 
     int counter = 0;
     return Padding(
@@ -41,7 +45,8 @@ class _DayCalendarState extends ConsumerState<DayCalendar> {
         viewNavigationMode: ViewNavigationMode.none,
         cellEndPadding: 10,
         cellBorderColor: Colors.transparent,
-        dataSource: _AppointmentDataSource(ref.watch(UserAppointmentsProvider)),
+        dataSource:
+            _AppointmentDataSource(ref.watch(UserAppointmentsProvider)!),
         appointmentBuilder: (context, calendarAppointmentDetails) {
           var appointment = (calendarAppointmentDetails.appointments
               .toList()[counter] as Appointment);
@@ -53,7 +58,7 @@ class _DayCalendarState extends ConsumerState<DayCalendar> {
           // THAT MAY BE AN OPTION IN THE APP THAT THE USER CAN CHANGE
           startHour: 5,
           timeTextStyle: TextStyle(fontSize: 15),
-          timeIntervalHeight: 81,
+          timeIntervalHeight: 95,
         ),
       ),
     );

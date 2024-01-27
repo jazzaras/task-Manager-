@@ -61,10 +61,14 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     }
 
     // GET (ALL) USER INFORMATION (appointments, info, etc)
+  }
 
-    setState(() {
-      _isLoading = !_isLoading;
-    });
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _isLoading = !_isLoading;
+
+    super.dispose();
   }
 
   @override

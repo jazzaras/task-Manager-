@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:task_manager/Core/providers/appointmentsProvider.dart';
 import 'package:task_manager/Core/providers/currentDateProvider.dart';
+import 'package:task_manager/features/manageAppointments/controller/addAppointmentController.dart';
 
 class TimeSelect extends ConsumerStatefulWidget {
   const TimeSelect({super.key});
@@ -18,10 +21,12 @@ class _TimeSelectState extends ConsumerState<TimeSelect> {
   int minute = 6;
   int duration = 1;
   String description = "";
+  bool _isLoading = false;
 
-  void submit() {
+  void submit() async {
+    _isLoading = !_isLoading;
+
     // first we need to check if the DATA is vaild
-
     _globalKey.currentState!.save();
 
     // Getting the current Selected Date By the user in the dayCalendar Widget
@@ -31,13 +36,13 @@ class _TimeSelectState extends ConsumerState<TimeSelect> {
     var startTime = DateTime(
         selectedDate.year, selectedDate.month, selectedDate.day, hour, minute);
 
-    ref.watch(UserAppointmentsProvider.notifier).addAppointment(
-      subject: name,
-      color: Color.fromARGB(255, 36, 36, 180),
-      startTime: startTime,
-      endTime: startTime.add(Duration(hours: duration)),
-      notes: ["ip"],
-    );
+    await ref.watch(AddAppointmentControllerProvider).addAppointment(
+        name: name,
+        startTime: startTime,
+        duration: duration,
+        description: description);
+
+    _isLoading = !_isLoading;
   }
 
   @override

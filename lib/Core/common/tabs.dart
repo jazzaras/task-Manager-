@@ -6,7 +6,7 @@ import 'package:task_manager/Core/providers/UserProvider.dart';
 import 'package:task_manager/Core/providers/navBarScreensProvider.dart';
 import 'package:task_manager/features/auth/views/auth.dart';
 import 'package:task_manager/features/dashboard/views/screens/calendar.dart';
-import 'package:task_manager/features/addAppointment/views/addApointment.dart';
+import 'package:task_manager/features/manageAppointments/views/addApointment.dart';
 import 'package:task_manager/features/dashboard/views/screens/home.dart';
 import 'package:task_manager/views/screens/profile.dart';
 import 'package:task_manager/Core/common/CustomNav.dart';

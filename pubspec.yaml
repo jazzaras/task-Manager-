@@ -49,6 +49,7 @@ dependencies:
   auto_size_text: ^3.0.0
   supabase_flutter: ^2.0.2
   loading_animation_widget: ^1.2.0+4
+  uuid: ^4.2.2
 
 dev_dependencies:
   flutter_test:

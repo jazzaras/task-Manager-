@@ -4,60 +4,28 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:syncfusion_flutter_calendar/calendar.dart";
 
-class UserAppointments extends StateNotifier<List<Appointment>> {
-  UserAppointments()
-      : super([
-          Appointment(
-            startTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 12),
-            endTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 14),
-            subject: "finish Database Assignment",
-            notes: jsonEncode({"state": "ip"}),
-            color: Color.fromARGB(255, 36, 36, 180),
-          ),
-          Appointment(
-            startTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 12),
-            endTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 14),
-            subject: "Submit Database Assignment",
-            notes: jsonEncode({"state": "d"}),
-            color: Color.fromARGB(255, 36, 36, 180),
-          ),
-          Appointment(
-            startTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().add(Duration(days: 1)).day, 12),
-            endTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().add(Duration(days: 1)).day, 14),
-            notes: jsonEncode({"state": "d"}),
-            subject: "Make a Task Manager App",
-            color: Color.fromARGB(255, 36, 36, 180),
-          ),
-          Appointment(
-            startTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 19),
-            endTime: DateTime(DateTime.now().year, DateTime.now().month,
-                DateTime.now().day, 21),
-            notes: jsonEncode({"state": "ip"}),
-            subject: "Attend Workshop",
-            color: Color.fromARGB(255, 36, 36, 180),
-          ),
-        ]);
+class UserAppointments extends StateNotifier<List<Appointment>?> {
+  UserAppointments() : super([]);
 
-  void addAppointment(
-      {required DateTime startTime,
-      required DateTime endTime,
-      required String subject,
-      required Color color,
-      required List notes}) {
+  void addAppointment({
+    required DateTime startTime,
+    required DateTime endTime,
+    required String subject,
+    required Color color,
+  }) {
     Appointment appointment = Appointment(
-        startTime: startTime,
-        endTime: endTime,
-        subject: subject,
-        color: color,
-        notes: notes.toString());
-    state = [appointment, ...state];
+      startTime: startTime,
+      endTime: endTime,
+      subject: subject,
+      color: color,
+      notes: jsonEncode({"state": "ip"}),
+    );
+
+    state = [appointment, ...state!];
+  }
+
+  void setAppointments(newState) {
+    state = newState;
   }
 }
 
@@ -85,5 +53,5 @@ class CustomAppointment {
 }
 
 final UserAppointmentsProvider =
-    StateNotifierProvider<UserAppointments, List<Appointment>>(
+    StateNotifierProvider<UserAppointments, List<Appointment>?>(
         (ref) => UserAppointments());
